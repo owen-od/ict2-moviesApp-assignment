@@ -33,7 +33,7 @@ const MoviePage = (props) => {
         return res.json();
       })
       .then((movie) => {
-        console.log(movie);
+        console.log(movie)
         setMovie(movie);
       });
   }, [id]);
@@ -45,7 +45,7 @@ const MoviePage = (props) => {
       .then((res) => res.json())
       .then((json) => json.posters)
       .then((images) => {
-        console.log(images);
+        console.log(images)
         setImages(images);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -71,9 +71,9 @@ const MoviePage = (props) => {
                       cols={1}
                     >
                       <img
-                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                        alt={image.file_path}
-                      />
+              src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+              alt={image.file_path}
+          />
                     </ImageListItem>
                   ))}
                 </ImageList>
