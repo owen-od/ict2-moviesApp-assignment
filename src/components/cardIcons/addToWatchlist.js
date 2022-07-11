@@ -1,14 +1,14 @@
-import React from "react";
-// import { MoviesContext } from "../../contexts/moviesContext";
+import React, { useContext } from "react";
+import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@material-ui/core/IconButton";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 
 const AddToWatchlistIcon = ({ movie }) => {
-  // const context = useContext(MoviesContext);
+  const context = useContext(MoviesContext);
 
   const handleAddToWatchlist = (e) => {
-    // to do
-    console.log("added to watchlist");
+    e.preventDefault();
+    context.addToWatchlist(movie);
   };
   return (
     <IconButton aria-label="add to watchlist" onClick={handleAddToWatchlist}>
