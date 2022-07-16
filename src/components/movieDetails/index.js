@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     listStyle: "none",
     padding: theme.spacing(1.5),
-    margin: 0,
+    margin: 1,
   },
   chipLabel: {
     margin: theme.spacing(0.5),
@@ -81,6 +81,20 @@ const MovieDetails = ({ movie }) => {
             label={`${movie.vote_average} (${movie.vote_count}`}
           />
           <Chip label={`Released: ${movie.release_date}`} />
+        </Paper>
+        <Paper component="ul" className={classes.chipSet}>
+          <li>
+            <Chip
+              label="Production Countries"
+              className={classes.chipLabel}
+              color="primary"
+            />
+          </li>
+          {movie.production_countries.map((c) => (
+            <li key={c.name}>
+              <Chip label={c.name} className={classes.chip} />
+            </li>
+          ))}
         </Paper>
       </div>
       <Fab
