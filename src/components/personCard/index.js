@@ -6,6 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -34,9 +35,11 @@ export default function PersonCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" color="primary" onClick={null}>
-          Learn More
-        </Button>
+        <Link to={`/people/${person.id}`}>
+          <Button variant="contained" color="primary" onClick={null}>
+            Learn More
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
