@@ -3,17 +3,25 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Avatar } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import AddToWatchlistIcon from "../cardIcons/addToWatchlist";
+import MovieList from "../movieList";
+import Divider from "@material-ui/core/Divider";
+import MovieIcon from "@material-ui/icons/Movie";
 
 const useStyles = makeStyles((theme) => ({
   sizeAvatar: {
     height: theme.spacing(45),
     width: theme.spacing(45),
   },
+  dividerSpacing: {
+    margin: theme.spacing(3),
+  },
 }));
 
 const PersonDetails = (props) => {
   const classes = useStyles();
   const person = props.person;
+  const movies = props.movies.cast;
 
   return (
     <>
@@ -30,7 +38,7 @@ const PersonDetails = (props) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h5" component="h3" align="center">
+          <Typography variant="h4" component="h3" align="center">
             Biography
           </Typography>
         </Grid>
@@ -41,6 +49,26 @@ const PersonDetails = (props) => {
           </Typography>
         </Grid>
         <Grid item xs={2}></Grid>
+        <Grid item xs={12}>
+          <Divider className={classes.dividerSpacing} />
+          <Typography
+            variant="h4"
+            component="h3"
+            align="center"
+            gutterBottom="true"
+          >
+            Filmograpy
+            <MovieIcon fontSize="medium" color="primary" />
+          </Typography>
+        </Grid>
+        <Grid item container spacing={5}>
+          <MovieList
+            movies={movies}
+            action={(movie) => {
+              return <AddToWatchlistIcon movie={movie} />;
+            }}
+          />
+        </Grid>
       </Grid>
     </>
   );
