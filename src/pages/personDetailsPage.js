@@ -1,12 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-// import useMovie from "../hooks/useMovie";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import Header from "../components/headerMovieList";
 import PersonDetails from "../components/personDetails";
 import { getPerson } from "../api/tmdb-api";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
